@@ -20,7 +20,7 @@ export default function SocketStart( setReceived:reciever_tp, setSocket:socket_t
     });
 
     newSocket.addEventListener('message', (event) => {
-      const receivedData: ReceivedList = JSON.parse(event.data);
+      const receivedData: Res = JSON.parse(event.data);
       setReceived(receivedData);
       console.log('Received:', receivedData);
     });
