@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import UsersPanel from "./UsersPanel";
+import WebSocketComponent from "./WsComp";
 export default function MsgRoom() {
   const histColor: string =
     localStorage.getItem("color_theme")?.trim() || "#063E58";
@@ -7,6 +8,10 @@ export default function MsgRoom() {
   const [selectedColor, setSelectedColor] = useState<string>(histColor);
   const colors: string[] = ["#888993", "#677DB7", "#063E58"];
 
+  // const [Message, setMessage] = useState<string>("")
+  // const handleMsgSend= (e: React.FormEvent<HTMLFormElement>)=>{
+  //   e.preventDefault()
+  // }
   const handleClicked = (
     e: React.MouseEvent<HTMLButtonElement>,
     color: string
@@ -49,16 +54,17 @@ export default function MsgRoom() {
       <div className="flex flex-1 flex-row">
         <UsersPanel />
         <div className="flex flex-1 flex-col">
-          <div>
-
+          <div className=" mt-4 mr-4 flex h-[82%] rounded  bg-red-400">
+          <WebSocketComponent/>
           </div>
-          <form action="">
+          {/* <form  onSubmit={(e)=>handleMsgSend(e)} className="p-2 m-6" action="">
             <input
               type="text"
+              onChange={(e) => setMessage(e.target.value)}
               placeholder="set message"
-              className=" relative left-[10%] bottom-2 w-[70%] rounded-xl p-2 opacity-40 "
+              className=" relative left-[10%] bottom-6 w-[70%] rounded-xl p-2 opacity-40 "
             />
-          </form>
+          </form> */}
         </div>
       </div>
     </div>

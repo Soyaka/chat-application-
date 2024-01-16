@@ -40,7 +40,7 @@ func (pool *Pool) Start() {
 			}
 			break
 		case client := <-pool.Unregister:
-			//delete(pool.Clients, client)
+			delete(pool.Clients, client)
 			fmt.Println("a user just leave", client.ID)
 
 			for client, _ := range pool.Clients {
