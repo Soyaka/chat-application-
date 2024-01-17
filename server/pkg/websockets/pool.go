@@ -59,6 +59,7 @@ func (pool *Pool) Start() {
 				if err := client.Conn.WriteJSON(message); err != nil {
 					fmt.Println(err)
 					return
+					
 				}
 
 			}
